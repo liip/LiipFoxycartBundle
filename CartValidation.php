@@ -2,6 +2,9 @@
 
 namespace Liip\FoxycartBundle;
 
+/**
+ * Based on code from https://github.com/FoxyCart/FoxyCart-Cart-Validation--PHP (copyright FoxyCart.com LLC, 2011)
+ */
 class CartValidation
 {
     private $cartUrl;
