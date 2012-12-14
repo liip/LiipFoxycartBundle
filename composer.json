@@ -1,0 +1,27 @@
+{
+    "name": "liip/foxycart-bundle",
+    "type": "symfony-bundle",
+    "description": "Symfony Foxycart integration Bundle",
+    "keywords": ["Foxycart, ecommerce, shop, cart"],
+    "homepage": "http://liip.ch",
+    "license": "LGPL-2.1",
+    "authors": [
+        {
+            "name": "Liip AG",
+            "homepage": "http://liip.ch"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/framework-bundle": ">=2.0,<2.3-dev",
+    },
+    "suggest": {
+        "symfony/twig-bundle": ">=2.1,<2.3-dev"
+    },
+    "autoload":{
+        "psr-0":{
+            "Liip\\FoxycartBundle": ""
+        }
+    },
+    "target-dir": "Liip/FoxycartBundle"
+}
