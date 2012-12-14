@@ -37,9 +37,9 @@ class TwigExtension extends \Twig_Extension
         );
     }
 
-    public function getFoxycartHead()
+    public function getFoxycartHead($colorbox = true)
     {
-        return $this->container->get('templating')->render('LiipFoxycartBundle::head.html.twig');
+        return $this->container->get('templating')->render('LiipFoxycartBundle::head.html.twig', array('colorbox' => $colorbox));
     }
 
     public function getHashedValue($productCode, $optionName, $optionValue = '', $method = 'name', $urlencode = false)
