@@ -8,6 +8,7 @@
 
         <service id="liip_foxycart.twig.extension" class="Liip\FoxycartBundle\Twig\TwigExtension">
             <argument type="service" id="liip_foxycart.cart_validation"/>
+            <argument type="service" id="service_container"/>
             <tag name="twig.extension"/>
         </service>
 

@@ -3,25 +3,43 @@
 namespace Liip\FoxycartBundle\Twig;
 
 use Liip\FoxycartBundle\CartValidation;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 
 class TwigExtension extends \Twig_Extension
 {
+    /**
+     * @var \Liip\FoxycartBundle\CartValidation
+     */
     private $cartValidation;
 
     /**
-     * @param \Liip\FoxycartBundle\CartValidation $cartValidation
+     * @var \Symfony\Component\DependencyInjection\ContainerInterface
      */
-    public function __construct(CartValidation $cartValidation)
+    private $container;
+
+    /**
+     * @param CartValidation $cartValidation
+     * @param ContainerInterface $container
+     */
+    public function __construct(CartValidation $cartValidation, ContainerInterface $container)
     {
         $this->cartValidation = $cartValidation;
+        $this->container = $container;
     }
 
     public function getFunctions()
     {
         return array(
+            'foxycart_head' => new \Twig_Function_Method($this, 'getFoxycartHead', array('is_safe' => array('html'))),
             'foxycart_hash' => new \Twig_Function_Method($this, 'getHashedValue'),
             'foxycart_link_cart' => new \Twig_Function_Method($this, 'getHashCartLink'),
         );
+    }
+
+    public function getFoxycartHead()
+    {
+        return $this->container->get('templating')->render('LiipFoxycartBundle::head.html.twig');
     }
 
     public function getHashedValue($productCode, $optionName, $optionValue = '', $method = 'name', $urlencode = false)
