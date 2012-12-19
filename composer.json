@@ -4,7 +4,7 @@
     "description": "Symfony Foxycart integration Bundle",
     "keywords": ["Foxycart", "ecommerce", "shop", "cart"],
     "homepage": "http://liip.ch",
-    "license": "LGPL-2.1",
+    "license": "MIT",
     "authors": [
         {
             "name": "Liip AG",
