@@ -34,6 +34,7 @@ class TwigExtension extends \Twig_Extension
             'foxycart_head' => new \Twig_Function_Method($this, 'getFoxycartHead', array('is_safe' => array('html'))),
             'foxycart_hash' => new \Twig_Function_Method($this, 'getHashedValue'),
             'foxycart_link_cart' => new \Twig_Function_Method($this, 'getHashCartLink'),
+            'foxycart_url_cart' => new \Twig_Function_Method($this, 'getCartLink'),
         );
     }
 
@@ -50,6 +51,11 @@ class TwigExtension extends \Twig_Extension
     public function getHashCartLink($parameters, $urlencode = true)
     {
         return $this->cartValidation->getHashCartLink($parameters, $urlencode);
+    }
+
+    public function getCartLink()
+    {
+        return $this->container->getParameter('foxycart_cart_url');
     }
 
     public function getName()
